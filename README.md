@@ -1,27 +1,84 @@
-# React + Vite
+# 🎓 Certificate Processing App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a 3-step web application designed to help institutions manage and verify student certificates efficiently.
 
-Currently, two official plugins are available:
+## 📌 Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app lets you:
 
-## Expanding the ESLint configuration
+1. **Enter Certificate Details** (Step 1)
+2. **Upload a ZIP of Certificates + Excel Sheet** (Step 2)
+3. **View Summary of Valid/Invalid Certificates** (Step 3)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+It's a simple, clear workflow for batch certificate processing.
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: React.js + Tailwind CSS
+- **Backend**: Node.js + Express
+- **Libraries**: axios, multer, jszip, xlsx, react-router-dom
+
+---
+
+## 📂 Project Structure
+
+client/
+└── src/
+└── components/
+├── Step1ProjectForm.jsx
+├── Step2ZipUpload.jsx
+└── Step3Result.jsx
+
+server/
+├── Routes/
+│ └── Step1Route.js
+│ └── Step2Route.js
+└── results/
+└── result.json
+
+yaml
+Copy
+Edit
 
 
-📌 First Step Completed — Project Setup & Certificate Upload Feature
-✅ Features Implemented:
-Project setup using Vite + React
+---
 
-Tailwind CSS configured
+## 🧭 Step-by-Step Instructions
 
-Certificate upload form created
+### Step 1: Add Certificate Details
 
-Metadata collection form added
+- Go to the first form page.
+- Fill in fields like:
+  - Project Name
+  - Description
+  - Issuer
+  - Issue Date
+  - PDF file
+- Submit the form → Data will be stored (or passed to the next step).
 
-Uploaded data temporarily saved in localStorage
+### Step 2: Upload ZIP File
 
-UI for previewing uploaded certificate
+- Upload a `.zip` file containing:
+  - One Excel file with student data
+  - Multiple PDF certificate files
+- The backend extracts the data, matches PDFs with Excel entries, and generates a result summary.
+
+### Step 3: View Final Result
+
+- Summary will show:
+  - ✅ Valid matches
+  - ❌ Invalid ones
+  - 📦 Batch breakdown
+  - ⏱️ Estimated time to process
+
+---
+
+## ⚙️ How to Run the App
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/rohitmishra-27/certificate-app.git
+cd certificate-app
